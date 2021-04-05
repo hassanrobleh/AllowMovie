@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 export default class MovieDetails extends Component {
+  componentDidMount() {
+    console.log(this.props.movie);
+  }
   render() {
     return (
       <div className="w-25 border p-4 d-flex flex-column">
