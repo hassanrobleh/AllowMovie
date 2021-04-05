@@ -1,26 +1,30 @@
 import React, { Component } from "react";
 import { Header, MovieList, MovieDetails, Loading } from "./components";
-import dataMovies from './data';
+import dataMovies from "./data";
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: null,
-      selectedMovie: 0,
+      movies: dataMovies,
       loaded: false,
+      selectedMovie: 0,
     };
+  }
 
+  componentDidMount() {
     setTimeout(() => {
       this.setState({
         movies: dataMovies,
         loaded: true,
       });
-    }, 1000);
+    }, 100);
   }
 
   /* const index = this.state.movies.findIndex((m) => {
     return title === m.title;
   }); */
+
   updateSelectedMovie = (index) => {
     this.setState({
       selectedMovie: index,

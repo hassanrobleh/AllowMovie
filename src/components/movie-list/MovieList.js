@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import MovieElement from "./MovieElement";
+import MovieElement from "./movieElement/MovieElement";
 
 export default class MovieList extends Component {
-  componentDidMount() {
+  /* componentDidMount() {
     console.log(this.props);
-  }
+  } */
 
   render() {
     return (
@@ -13,7 +13,9 @@ export default class MovieList extends Component {
           <MovieElement
             key={m.title + index}
             movie={m}
-            updateSelectedMovie={() => this.props.updateSelectedMovie(index)}
+            updateSelectedMovie={() => {
+              this.props.updateSelectedMovie(index);
+            }}
           />
         ))}
       </div>
