@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Header, MovieList, MovieDetails, Loading } from "./components";
+import { Header, MovieList, MovieDetails, Loading, SearchBar } from "./components";
 import apiMovie from "./conf/api.movie";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -9,13 +10,6 @@ class App extends Component {
       selectedMovie: 0,
       loaded: false,
     };
-
-    /* setTimeout(() => {
-      this.setState({
-        movies: dataMovies,
-        loaded: true,
-      });
-    }, 1000); */
   }
 
   componentDidMount() {
@@ -56,6 +50,7 @@ class App extends Component {
     return (
       <div className="App d-flex flex-column">
         <Header />
+        <SearchBar  updateMovies={ this.updateMovies }/>
         {this.state.loaded ? (
           <div className="d-flex flex-row flex-fill pt-4 p-2">
             <MovieList
