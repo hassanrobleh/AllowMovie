@@ -16,6 +16,9 @@ export default class MovieList extends Component {
             updateSelectedMovie={() => {
               this.props.updateSelectedMovie(index);
             }}
+            isFavori={this.props.favoris.includes(m.title)}
+            addFavori={this.props.addFavori}
+            removeFavori={this.props.removeFavori}
           />
         ))}
       </div>

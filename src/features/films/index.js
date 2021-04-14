@@ -1,6 +1,6 @@
 import React from "react";
-import { MovieList, MovieDetails, SearchBar } from './components';
-import Loading from '../../components/utils/Loading';
+import { MovieList, MovieDetails, SearchBar } from "./components";
+import Loading from "../../components/utils/Loading";
 
 const SearchBar1 = (props) => {
   return (
@@ -11,6 +11,9 @@ const SearchBar1 = (props) => {
           <MovieList
             movies={props.movies}
             updateSelectedMovie={props.updateSelectedMovie}
+            favoris={props.favoris}
+            removeFavori={props.removeFavori}
+            addFavori={props.addFavori}
           />
           <MovieDetails movie={props.movies[props.selectedMovie]} />
         </div>
