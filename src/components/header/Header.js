@@ -6,10 +6,8 @@ export default class Header extends Component {
     return (
         <header className="navbar navbar-expand-lg navbar-light gb-light">
             <a className="navbar-brand" href="/">AllowMovie</a>
-            <button className="navbar-toggler">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse">
+            
+            <div className="navbar navbar-expand ml-auto">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
                         {/* <a className="nav-link" href="/">Home</a> */}

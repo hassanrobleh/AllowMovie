@@ -2,7 +2,7 @@ import React from "react";
 import { MovieList, MovieDetails, SearchBar } from "./components";
 import Loading from "../../components/utils/Loading";
 
-const SearchBar1 = (props) => {
+const Films = (props) => {
   return (
     <>
       <SearchBar updateMovies={props.updateMovies} />
@@ -24,4 +24,4 @@ const SearchBar1 = (props) => {
   );
 };
 
-export default SearchBar1;
+export default Films;
