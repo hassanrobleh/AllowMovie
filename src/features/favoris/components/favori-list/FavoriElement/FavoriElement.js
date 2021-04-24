@@ -3,18 +3,17 @@ import Style from "./FavoriElement.module.scss";
 
 export default class FavoriElement extends Component {
   render() {
+    const { favori } = this.props;
     return (
       <div className={"d-flex flex-row bg-light " + Style.container}>
-        <img width="150" src={this.props.favori.img} alt="film" />
+        <img width="150" src={favori.img} alt="film" />
         <div className="flex-fill d-flex flex-column p-3">
-          <h5>{this.props.favori.title}</h5>
+          <h5>{favori.title}</h5>
           <hr className="w-100" />
-          <p className="flex-fill ">{this.props.favori.details}</p>
+          <p className="flex-fill ">{favori.details}</p>
           <div className="d-flex flex-row justify-content-end">
             <button
-              onClick={() => {
-                this.props.removeFavori(this.props.favori.title);
-              }}
+              onClick={this.props.removeFavori}
               className="btn btn-small btn-danger"
             >
               Remove

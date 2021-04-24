@@ -1,13 +1,12 @@
 import React, { Component, lazy, Suspense } from "react";
 import { Header } from "./components";
-import apiMovie, { apiMovieMap } from "./conf/api.movie";
-import apiFirebase from "./conf/api.firebase";
 import {
-  BrowserRouter as Router,
-  Route,
+  BrowserRouter as Route,
   Switch,
   Redirect,
 } from "react-router-dom";
+import { connect } from 'react-redux';
+import { fetchFavoris } from "./store/actions";
 
 const LazyFilms = lazy(() =>
   import(/* webpackChunkName: "Films"*/ "./features/films")
@@ -16,7 +15,7 @@ const LazyFavoris = lazy(() =>
   import(/* webpackChunkName: "Favoris"*/ "./features/favoris")
 );
 class App extends Component {
-  constructor(props) {
+  /* constructor(props) {
     super(props);
     this.state = {
       movies: null,
@@ -24,10 +23,17 @@ class App extends Component {
       loaded: false,
       favoris: null,
     };
-  }
+  } */
+
+  /*  updateSelectedMovie = (index) => {
+    this.setState({
+      selectedMovie: index,
+    });
+  }; */
 
   componentDidMount() {
-    apiMovie
+    this.props.fetchFavoris();
+    /* apiMovie
       .get("/discover/movie")
       .then((response) => response.data.results)
       .then((moviesApi) => {
@@ -41,10 +47,10 @@ class App extends Component {
       //console.log(response);
       let favoris = response.data ? response.data : [];
       this.updateFavori(favoris);
-    });
+    }); */
   }
 
-  updateMovies = (movies) => {
+  /*   updateMovies = (movies) => {
     this.setState({
       movies,
       loaded: this.state.favoris ? true : false,
@@ -56,18 +62,13 @@ class App extends Component {
       favoris,
       loaded: this.state.movies ? true : false,
     });
-  };
+  }; */
 
   /* const index = this.state.movies.findIndex((m) => {
     return title === m.title;
   }); */
 
-  updateSelectedMovie = (index) => {
-    this.setState({
-      selectedMovie: index,
-    });
-  };
-
+  /*   
   addFavori = (title) => {
     const film = { ...this.state.movies.find((m) => m.title === title) };
     this.setState(
@@ -76,9 +77,9 @@ class App extends Component {
       }),
       this.saveFavoris()
     );
-  };
+  }; */
 
-  removeFavori = (title) => {
+  /*   removeFavori = (title) => {
     const index = this.state.favoris.findIndex((f) => f.title === title);
     this.setState(
       (state) => ({
@@ -90,7 +91,7 @@ class App extends Component {
 
   saveFavoris = () => {
     apiFirebase.put("favoris.json", this.state.favoris);
-  };
+  }; */
 
   /*   addFavori = (title) => {
     const favoris = this.state.favoris.slice();
@@ -112,20 +113,20 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div className="App d-flex flex-column">
-          <Header />
-          <Suspense fallback={<h1>Loading ....</h1>}>
-            <Switch>
-              <Route path="/films" component={LazyFilms} />
-              <Route path="/favoris" component={LazyFavoris} />
-              <Redirect to="/films" />
-            </Switch>
-          </Suspense>
-        </div>
-      </Router>
+      <div className="App d-flex flex-column">
+        <Header />
+        <Suspense fallback={<h1>Loading ....</h1>}>
+          <Switch>
+            <Route path="/films" component={LazyFilms} />
+            <Route path="/favoris" component={LazyFavoris} />
+            <Redirect to="/films" />
+          </Switch>
+        </Suspense>
+      </div>
     );
   }
 }
 
-export default App;
+export default connect(null, {
+  fetchFavoris,
+})(App);
