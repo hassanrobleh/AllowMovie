@@ -1,3 +1,5 @@
+import movies from "./movies/movies.reducers";
+
 // {
 //     movies: {
 //         data: [],
@@ -11,3 +13,9 @@
 //         error: null,
 //     }
 // }
+
+
+const moviesReducer = {
+  movies,
+};
+export default moviesReducer;
