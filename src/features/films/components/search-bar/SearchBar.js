@@ -4,24 +4,6 @@ import { Formik } from "formik";
 export default class SearchBar extends Component {
   submit = (values, actions) => {
     this.props.fetchMovies(values).then(() => actions.setSubmitting(false));
-    //console.log(values);
-    /* const query =
-      "?" +
-      Object.keys(values)
-        .map((k) => `${k}=${values[k]}&`)
-        .join("");
-    //console.log(query);
-
-    apiMovie
-      .get("/search/movie" + query)
-      .then((response) => response.data.results)
-      .then((moviesApi) => {
-        const movies = moviesApi.map(apiMovieMap);
-        //console.log(movies);
-        this.props.updateMovies(movies);
-        actions.setSubmitting(false);
-      })
-      .catch((err) => console.log(err)); */
   };
   render() {
     return (

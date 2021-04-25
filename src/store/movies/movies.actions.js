@@ -28,7 +28,7 @@ export const fetchMovies = (filter) => (dispatch) => {
   );
 };
 
-export const setSelectMovie = (index) => ({
+export const setSelectedMovie = (index) => ({
   type: SET_SELECTED_MOVIE,
   index,
 });

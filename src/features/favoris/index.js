@@ -5,7 +5,7 @@ import {
   favorisListSelector,
   favorisIsLoadingSelector,
 } from "../../store/selectors";
-import { tryRemoveFavoris } from "../../store/actions";
+import { tryRemoveFavori } from "../../store/actions";
 import { FavoriList } from "./components";
 
 const Favoris = (props) => {
@@ -31,6 +31,6 @@ export default connect(
     isLoading: favorisIsLoadingSelector(state),
   }),
   {
-    tryRemoveFavoris,
+    tryRemoveFavori,
   }
 )(Favoris);

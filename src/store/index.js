@@ -8,7 +8,7 @@ const appReducer = combineReducers(reducers);
 
 const middleware = [thunkMiddleware];
 
-if (ProcessingInstruction.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "development") {
   middleware.push(logger);
 }
 
