@@ -2,21 +2,27 @@ import React, { Component } from "react";
 import { Formik } from "formik";
 
 export default class SearchBar extends Component {
-  submit = (values, actions) => {
-    this.props.fetchMovies(values).then(() => actions.setSubmitting(false));
+  componentDidMount() {
+    this.submit({ query: "spider man", language: "fr-FR" });
+  }
+
+  submit = (values) => {
+    this.props.fetchMovies(values);
   };
+
   render() {
     return (
       <Formik
         onSubmit={this.submit}
-        initialValues={{ query: "", language: "en-US" }}
+        initialValues={{ query: "spider man", language: "fr-FR" }}
       >
-        {({ handleSubmit, handleChange, handleBlur, isSubmitting }) => (
+        {({ values, handleSubmit, handleChange, handleBlur, isSubmitting }) => (
           <form className="d-flex flex-row p-2 m-2" onSubmit={handleSubmit}>
             <input
               name="query"
               className="flex-fill form-control mr-2"
-              placeholder="search ..."
+              placeholder="Search ..."
+              value={values.query}
               onChange={handleChange}
               onBlur={handleBlur}
             />
@@ -26,15 +32,16 @@ export default class SearchBar extends Component {
               onChange={handleChange}
               onBlur={handleBlur}
             >
-              <option value="en-US">Anglais</option>
               <option value="fr-FR">Français</option>
+              <option value="en-US">Anglais</option>
+              <option value="de-DE">Allemand</option>
             </select>
             <button
               className="btn btn-small btn-success"
               type="submit"
               disabled={isSubmitting}
             >
-              Search
+              Submit
             </button>
           </form>
         )}

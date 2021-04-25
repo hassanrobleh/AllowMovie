@@ -1,6 +1,4 @@
-
 import { createSelector } from "reselect";
-
 
 export const favoriSelector = (state) => state.favoris;
 

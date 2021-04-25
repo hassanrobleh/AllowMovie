@@ -1,6 +1,6 @@
 import React, { Component, lazy, Suspense } from "react";
 import { Header } from "./components";
-import { BrowserRouter as Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchFavoris } from "./store/actions";
 
@@ -31,6 +31,8 @@ class App extends Component {
   }
 }
 
-export default connect(null, {
-  fetchFavoris,
-})(App);
+export default withRouter(
+  connect(null, {
+    fetchFavoris,
+  })(App)
+);

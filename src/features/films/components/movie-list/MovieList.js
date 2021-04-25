@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-import MovieElement from "./movieElement/MovieElement";
+import MovieElement from "./MovieElement/MovieElement";
 
 export default class MovieList extends Component {
-  /* componentDidMount() {
-    console.log(this.props);
-  } */
-
   render() {
     return (
       <div className="w-75 d-flex flex-row flex-wrap justify-content-center">

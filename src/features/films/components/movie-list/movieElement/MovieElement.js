@@ -5,7 +5,7 @@ export default class MovieElement extends Component {
   mouseEnter = () => {
     this.props.updateSelectedMovie(this.props.movie.title);
   };
-
+ 
   render() {
     return (
       <div
@@ -30,7 +30,7 @@ export default class MovieElement extends Component {
             ) : (
               <button
                 onClick={() => {
-                  this.props.addFavori(this.props.movie.title);
+                  this.props.addFavori(this.props.movie);
                 }}
                 className="btn btn-small btn-primary"
               >

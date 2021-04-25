@@ -12,12 +12,12 @@ export const moviesListSelector = createSelector(
   (movies) => movies.data
 );
 
-export const moviesSelectedMoviesIndexSelector = createSelector(
+export const moviesSelectedMovieIndexSelector = createSelector(
   [moviesSelector],
-  (movies) => movies.selectedMovies
+  (movies) => movies.selectedMovie
 );
 
 export const moviesSelectedMovieSelector = createSelector(
-  [moviesListSelector, moviesSelectedMoviesIndexSelector],
+  [moviesListSelector, moviesSelectedMovieIndexSelector],
   (moviesData, index) => moviesData[index]
 );
